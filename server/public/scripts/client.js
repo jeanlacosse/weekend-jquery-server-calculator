@@ -42,16 +42,6 @@ function clearOld(evt){
     evt.preventDefault();
 
     $('#pastEquations').empty();
-
-    $.ajax({
-        url: '/clearOld',
-        method: 'POST',
-        // data: mathInputs,
-    }).then(() => {
-        console.log('POST /clearOld working')
-    }).catch((err) => {
-        console.log('error is', err)
-    })
 }
 
 function fetchMath() {

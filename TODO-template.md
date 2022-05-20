@@ -11,7 +11,7 @@ TODO
     [x] create a submit button as '='
     [x] create h2 that will have the answer appended to it
     [x] create a ul that will have past equations appended to it 
-    [] add clear button to get rid of old answers
+    [x] add clear button to get rid of old answers
 
 [x] setup client.js
     [x] on ready for JQ
@@ -33,10 +33,7 @@ TODO
         [x] run through the array and break down the object so I can do the math it is asking foor
             [x] create a function which does that math, call it in app.post
         [x] past answers stored in a seperate array that is not cleared when page is reloaded
-    [x] create a app.post to clear storage array and ul where they are appended to
-
-
-            
+    [x] create a app.post to clear storage array and ul where they are appended to         
 
 [] Update the README.md with specific information
 

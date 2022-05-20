@@ -36,15 +36,6 @@ app.post('/calculate', (req, res) => {
     res.sendStatus(201);
 });
 
-app.post('/clearOld', (req, res) => {
-    console.log('in the app.post /clearOld');
-    
-    answers = [];
-    mathNums = [];
-    // response all went well
-    res.sendStatus(201);
-});
-
 app.get('/calculate', (req, res) => {
     console.log('in the app.get for /calculate', answers);
 
