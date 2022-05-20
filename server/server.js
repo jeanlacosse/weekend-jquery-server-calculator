@@ -43,7 +43,7 @@ app.get('/calculate', (req, res) => {
     console.log('in the app.get for /calculate', answers);
 
     // send back the calculated answer
-    res.send(/*calcualted answer object*/answers)
+    res.send(/*calcualted answer object*/answers);
     answers = [];
     
 })
@@ -56,7 +56,11 @@ function calculateEqn(mathNums) {
     for (let input of mathNums) {
         console.log('in calculateEqn', input);
         // placing the array items into an eqn, this runs the operators object with the operator and the Number(strings) from the nnumInputs array
+        // how can I place this into the same object as the mathNums?
         let answer = {
+            operator: input.operator,
+            numOne: input.numOne,
+            numTwo: input.numTwo,
             answer: operators[input.operator](Number(input.numOne), Number(input.numTwo))
         }
 

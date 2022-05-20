@@ -55,16 +55,19 @@ function renderMath(mathResonse) {
 
     // resets the values in the HTML
     $('.numInput').val('');
-    $('#pastEquations').empty();
+    // $('#pastEquations').empty();
     $('#answer').empty();
 
     // append to DOM here from the math that was setn from server in the GET mathObj
-    // for (let answer of mathResonse) {
+    // pop the last objecct and grab the .answer and only append the one to the DOM
         const lastAnswer = Object.values(mathResonse).pop();
         console.log(lastAnswer)
         $('#answer').append(`
-        ${lastAnswer.answer}
+        Answer is: ${lastAnswer.answer}
         `)
-    }
+        $('#pastEquations').append(`
+        <li>${lastAnswer.numOne} ${lastAnswer.operator} ${lastAnswer.numTwo} = ${lastAnswer.answer}</li>
+        `)
 
-// }
+}
+
