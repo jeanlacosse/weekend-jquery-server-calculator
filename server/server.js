@@ -29,15 +29,12 @@ app.post('/calculate', (req, res) => {
     // push the data from POST into the mathNums array
     mathNums.push(req.body);
     console.log('in the app.post /calculate', req.body);
-
-    
     
     // calculate in server the math nums 
     calculateEqn(mathNums);
     // response all went well
     res.sendStatus(201);
 });
-
 
 app.get('/calculate', (req, res) => {
     console.log('in the app.get for /calculate', answers);
@@ -47,8 +44,6 @@ app.get('/calculate', (req, res) => {
     answers = [];
     
 })
-
-
 
 function calculateEqn(mathNums) {
     
@@ -66,8 +61,7 @@ function calculateEqn(mathNums) {
 
         //  sending eqn to a new array for res.send to send back
         console.log(answer)
-        answers.push(answer);
-        
+        answers.push(answer);  
     }
    
 }
