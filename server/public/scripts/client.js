@@ -36,3 +36,23 @@ function submitMath(evt) {
         console.log('error is', err)
     })
 }
+
+function fetchMath() {
+    $.ajax({
+        url: '/calculate',
+        method: 'GET',
+    }).then((mathResonse) => {
+        console.log('GET request working');
+        // send the object to a function which will send to DOM
+        renderMath(mathResonse);
+    }).catch((err) => {
+        console.log('error is ', err);
+    })
+}
+
+function renderMath(mathResonse) {
+    $('.numInput').val('');
+    $('#pastEquations').empty();
+
+    // append to DOM here from the math that was setn from server in the GET mathObj
+}
