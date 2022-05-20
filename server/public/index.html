@@ -16,10 +16,17 @@
     <form action="" id="formSubmit">
        <input type="number" required placeholder="First Number" id="numOne">
        <!-- buttons will take only the one value and send to the array object-->
-       <button id="plus" class="mathBtn">+</button>
+       <!-- <button id="plus" class="mathBtn">+</button>
        <button id="minus" class="mathBtn">-</button>
        <button id="divide" class="mathBtn">/</button>
-       <button id="times" class="mathBtn">*</button>
+       <button id="times" class="mathBtn">*</button> -->
+       <!-- create selectors for math functions here -->
+       <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+      </select>
        <input type="number" required placeholder="Second Number" id="numTwo">
 
        <button type="submit" id="submitBtn">=</button>
