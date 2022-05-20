@@ -15,7 +15,7 @@ function submitMath(evt) {
     // prevent form from reloading page
     evt.preventDefault();
     console.log('button works!')
-    
+
     let mathInputs = {
         numOne: Number($('#numOne').val()),
         numTwo: Number($('#numTwo').val()),
@@ -28,7 +28,7 @@ function submitMath(evt) {
         method: 'POST',
         data: mathInputs,
     }).then(() => {
-        console.log('POST /calculate working')
+        console.log('POST /calculate working', mathInputs)
 
         // call the GET
         fetchMath()
@@ -51,14 +51,20 @@ function fetchMath() {
 }
 
 function renderMath(mathResonse) {
+    // gets the last key in the object --- idk if this works
+
+    // resets the values in the HTML
     $('.numInput').val('');
     $('#pastEquations').empty();
     $('#answer').empty();
+
     // append to DOM here from the math that was setn from server in the GET mathObj
-    for (let answer of mathResonse) {
+    // for (let answer of mathResonse) {
+        const lastAnswer = Object.values(mathResonse).pop();
+        console.log(lastAnswer)
         $('#answer').append(`
-    ${answer.answer}
-    `)
+        ${lastAnswer.answer}
+        `)
     }
-    
-}
+
+// }

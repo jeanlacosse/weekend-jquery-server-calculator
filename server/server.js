@@ -45,6 +45,7 @@ app.get('/calculate', (req, res) => {
     // send back the calculated answer
     res.send(/*calcualted answer object*/answers)
     answers = [];
+    
 })
 
 
