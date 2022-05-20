@@ -7,9 +7,9 @@ function onReady() {
 
     // Below only need if doing multiple buttons, for now just doing a selector
     // $('.mathBtn').on('click', mathBtn);
-    $('#submitBtn').on('click', submitMath)
+    $('#submitBtn').on('click', submitMath);
+    $('#clearBtn').on('click', clearOld);
 }
-
 
 function submitMath(evt) {
     // prevent form from reloading page
@@ -32,6 +32,23 @@ function submitMath(evt) {
 
         // call the GET
         fetchMath()
+    }).catch((err) => {
+        console.log('error is', err)
+    })
+}
+
+// this function run to clear the old data from teh arrays on teh server side
+function clearOld(evt){
+    evt.preventDefault();
+
+    $('#pastEquations').empty();
+
+    $.ajax({
+        url: '/clearOld',
+        method: 'POST',
+        // data: mathInputs,
+    }).then(() => {
+        console.log('POST /clearOld working')
     }).catch((err) => {
         console.log('error is', err)
     })

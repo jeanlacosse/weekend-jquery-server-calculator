@@ -11,15 +11,17 @@ TODO
     [x] create a submit button as '='
     [x] create h2 that will have the answer appended to it
     [x] create a ul that will have past equations appended to it 
+    [] add clear button to get rid of old answers
 
-[] setup client.js
+[x] setup client.js
     [x] on ready for JQ
     [x] add the input values from index.html into a new object in the client
         [x] create a POST that sends the object to the server and runs the GET function
     [x] Create a GET function that grabs the math back from the server 
-        [] have function call to append to DOM the equations and answers
+        [x] have function call to append to DOM the equations and answers
+    [x]attach clear button to a new ajax post that will clear the array
 
-[]Set up server.js
+[x]Set up server.js
     [x] npm install body-parser, express, nodemon
     [x] create "start" script for nodemon
     [x] create .gitignore file and add node_modules/
@@ -30,7 +32,8 @@ TODO
     [x]create app.post that will take the object from the client and push it to an array in the server
         [x] run through the array and break down the object so I can do the math it is asking foor
             [x] create a function which does that math, call it in app.post
-        [] past answers stored in a seperate array that is not cleared when page is reloaded
+        [x] past answers stored in a seperate array that is not cleared when page is reloaded
+    [x] create a app.post to clear storage array and ul where they are appended to
 
 
             
