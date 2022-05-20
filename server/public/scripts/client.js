@@ -7,7 +7,7 @@ function onReady() {
 
     // Below only need if doing multiple buttons, for now just doing a selector
     // $('.mathBtn').on('click', mathBtn);
-    $('#submitBtn').on('submit', submitMath)
+    $('#submitBtn').on('click', submitMath)
 }
 
 
@@ -19,7 +19,7 @@ function submitMath(evt) {
     let mathInputs = {
         numOne: Number($('#numOne').val()),
         numTwo: Number($('#numTwo').val()),
-        operator: $('#operator').val()
+        operator: $('#operator').val(),
     }
 
     $.ajax({
@@ -42,7 +42,7 @@ function fetchMath() {
         url: '/calculate',
         method: 'GET',
     }).then((mathResonse) => {
-        console.log('GET request working');
+        console.log('GET request working', mathResonse);
         // send the object to a function which will send to DOM
         renderMath(mathResonse);
     }).catch((err) => {
@@ -53,6 +53,12 @@ function fetchMath() {
 function renderMath(mathResonse) {
     $('.numInput').val('');
     $('#pastEquations').empty();
-
+    $('#answer').empty();
     // append to DOM here from the math that was setn from server in the GET mathObj
+    for (let answer of mathResonse) {
+        $('#answer').append(`
+    ${answer.answer}
+    `)
+    }
+    
 }
