@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="./styles/styles.css">
+    <script src="./vendors/jquery.js"></script>
+    <script src="./scripts/client.js"></script>
+
+    <title>Server-Calculator</title>
+</head>
+<body>
+    <h1>Server Side Calculator</h1>
+    <!-- inputs for the numbers and equations -->
+    <form action="" id="formSubmit">
+       <input type="number" class='numInput' required placeholder="First Number" id="numOne">
+       <!-- buttons will take only the one value and send to the array object-->
+      
+       <select id="operator">
+        <option value="+">+</option>
+        <option value="-">-</option>
+        <option value="/">/</option>
+        <option value="*">*</option>
+      </select>
+       <input type="number" class='numInput' required placeholder="Second Number" id="numTwo">
+
+       <button type="submit" id="submitBtn">=</button>
+    </form>
+
+    <h2 id="answer">answer goes here</h2>
+
+    <ul id="pastEquations">
+
+    </ul>
+</body>
+</html>
