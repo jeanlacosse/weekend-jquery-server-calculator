@@ -9,8 +9,19 @@ function onReady() {
     // $('.mathBtn').on('click', mathBtn);
     $('#submitBtn').on('click', submitMath);
     $('#clearBtn').on('click', clearOld);
+    $('.numBtn').on('click', appendNum)
+    // $('.operatorBtn').on('click', appendOp)
 }
 
+// appending numbers from buttons to first span, and second span if operator span has something in it
+function appendNum(){
+    if ($('#operator').text() === '') {
+        $('#firstNum').append(`
+        ${$(this).text()}
+        `)
+        
+    }
+}
 
 
 function submitMath(evt) {
