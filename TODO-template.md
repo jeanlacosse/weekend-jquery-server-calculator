@@ -40,13 +40,13 @@ TODO
 STRETCH GOALS
     [x] create new stretch feature branch
 
-[] html update
+[x] html update
     [x] add number buttons in a calculator format
     [x] make divs for teh numbers to append to
     [x] add a decimal button
     [x] turn the drop down into a set of buttons
 
-[] client.js update
+[x] client.js update
     [x] get the buttons to send their values to the textbox field
     [x] break text box into individual units
         [x] apply those inputs to the object for mathInputs, rest of code should run regularly

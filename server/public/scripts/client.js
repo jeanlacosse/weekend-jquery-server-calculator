@@ -13,27 +13,6 @@ function onReady() {
     $('.operatorBtn').on('click', appendOp)
 }
 
-// appending numbers from buttons to first span, and second span if operator span has something in it
-function appendNum() {
-    if ($('#operator').text() === '') {
-        $('#firstNum').append(`${$(this).text()}`);
-    }
-    else {
-        // why did the line break here break my code?
-        $('#secondNum').append(`${$(this).text()}`)
-    }
-}
-
-// allow only one thing to append to operator at a time
-function appendOp() {
-    if ($('#operator').text() === '') {
-        $('#operator').append(`${$(this).text()}`)
-    }
-    else {
-        return
-    }
-}
-
 
 
 function submitMath(evt) {
@@ -41,11 +20,14 @@ function submitMath(evt) {
     evt.preventDefault();
     console.log('button works!')
 
+
     let mathInputs = {
         firstNum: $('#firstNum').text(),
         secondNum: $('#secondNum').text(),
         operator: $('#operator').text()
     }
+
+    $('.calculateBox').empty();
 
     $.ajax({
         // create post to send data to server
@@ -66,7 +48,8 @@ function submitMath(evt) {
 function clearOld(evt) {
     evt.preventDefault();
 
-    $('#pastEquations').empty();
+    // $('#pastEquations').empty();
+    $('.calculateBox').empty();
 }
 
 function fetchMath() {
@@ -82,24 +65,5 @@ function fetchMath() {
     })
 }
 
-function renderMath(mathResonse) {
-    // gets the last key in the object --- idk if this works
 
-    // resets the values in the HTML
-    $('.numInput').val('');
-    // $('#pastEquations').empty();
-    $('#answer').empty();
-
-    // append to DOM here from the math that was setn from server in the GET mathObj
-    // pop the last objecct and grab the .answer and only append the one to the DOM
-    const lastAnswer = Object.values(mathResonse).pop();
-    console.log(lastAnswer)
-    $('#answer').append(`
-        Answer is: ${lastAnswer.answer}
-        `)
-    $('#pastEquations').append(`
-        <li>${lastAnswer.firstNum} ${lastAnswer.operator} ${lastAnswer.secondNum} = ${lastAnswer.answer}</li>
-        `)
-
-}
 
