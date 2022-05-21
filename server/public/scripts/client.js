@@ -11,6 +11,8 @@ function onReady() {
     $('#clearBtn').on('click', clearOld);
 }
 
+
+
 function submitMath(evt) {
     // prevent form from reloading page
     evt.preventDefault();
