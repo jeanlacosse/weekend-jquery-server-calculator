@@ -7,27 +7,53 @@
     <link rel="stylesheet" href="./styles/styles.css">
     <script src="./vendors/jquery.js"></script>
     <script src="./scripts/client.js"></script>
+    <script src="./scripts/appenders.js"></script>
 
     <title>Server-Calculator</title>
 </head>
 <body>
     <h1>Server Side Calculator</h1>
-    <!-- inputs for the numbers and equations -->
-    <form action="" id="formSubmit">
-       <input type="number" class='numInput' required placeholder="First Number" id="numOne">
-       <!-- buttons will take only the one value and send to the array object-->
-      
-       <select id="operator">
-        <option value="+">+</option>
-        <option value="-">-</option>
-        <option value="/">/</option>
-        <option value="*">*</option>
-      </select>
-       <input type="number" class='numInput' required placeholder="Second Number" id="numTwo">
-
-       <button type="submit" id="submitBtn">=</button>
-       <button type="reset" id="clearBtn">Clear</button>
-    </form>
+<!-- calculator layout burrowed from https://codeburst.io/making-a-calculator-with-basic-html-css-and-javascript-part-1-1e4288f0bea1 -->
+    
+       
+           <!-- <tr>
+              <td colspan="4"> -->
+                  <div id="inputBox">
+                  <!-- disabled doesn't allow me to type into the input box manually -->
+                 <span class="calculateBox" name="firstNum" id="firstNum"></span><span class="calculateBox" id="operator"></span><span class="calculateBox" id="secondNum"></span>
+                </div>
+              <!-- </td>
+           </tr> -->
+           <form name="calculator">
+           <table>
+           <tr>
+               <!-- onclick will append the number string to the display for me -->
+              <td><button class="numBtn" type="button">1</td>
+              <td><button class="numBtn" type="button" name="two" value="2">2</td>
+              <td><button class="numBtn" type="button" name="three" value="3">3</td>
+              <td><button class="operatorBtn" type="button" class="operator" name="plus" data-op="+" value="+">+</td>
+           </tr>
+           <tr>
+              <td><button class="numBtn" type="button" name="four" value="4">4</td>
+              <td><button class="numBtn" type="button" name="five" value="5">5</td>
+              <td><button class="numBtn" type="button" name="six" value="6">6</td>
+              <td><button class="operatorBtn" type="button" class="operator" name="minus" value="-">-</td>
+           </tr>
+           <tr>
+              <td><button class="numBtn" type="button" name="seven" value="7">7</td>
+              <td><button class="numBtn" type="button" name="eight" value="8">8</td>
+              <td><button class="numBtn" type="button" name="nine" value="9">9</td>
+              <td><button class="operatorBtn" type="button" class="operator" name="times" value="*">*</td>
+           </tr>
+           <tr>
+              <td><button class="numBtn" type="button" name="dot" value=".">.</td>
+              <td><button class="numBtn" type="button" name="zero" value="0">0</td>
+              <td><button type="submit" id="submitBtn" name="doit" value="=">=</td>
+              <td><button class="operatorBtn" type="button" class="operator" name="div" value="/">/</td>
+            <td><button type="reset" id="clearBtn" name="clear" value="c">C</td>
+           </tr> 
+        </table>
+     </form>
     
     <h2 id="answer">answer goes here</h2>
 

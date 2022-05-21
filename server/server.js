@@ -15,6 +15,8 @@ app.use(bodyParser.urlencoded({ extended: true }))
 app.use(express.static('./server/public'));
 
 // create operators which turn a string into an eqn that has a value of a function with two parameters
+
+// why is there a line break here?????
 let operators = {
     '+': function (a, b) { return a + b },
     '-': function (a, b) { return a - b },
@@ -54,9 +56,9 @@ function calculateEqn(mathNums) {
         // how can I place this into the same object as the mathNums?
         let answer = {
             operator: input.operator,
-            numOne: input.numOne,
-            numTwo: input.numTwo,
-            answer: operators[input.operator](Number(input.numOne), Number(input.numTwo))
+            firstNum: input.firstNum,
+            secondNum: input.secondNum,
+            answer: operators[input.operator](Number(input.firstNum), Number(input.secondNum))
         }
 
         //  sending eqn to a new array for res.send to send back

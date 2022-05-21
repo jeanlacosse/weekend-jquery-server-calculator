@@ -37,4 +37,19 @@ TODO
 
 [] Update the README.md with specific information
 
-[] check stretch goals
+STRETCH GOALS
+    [x] create new stretch feature branch
+
+[x] html update
+    [x] add number buttons in a calculator format
+    [x] make divs for teh numbers to append to
+    [x] add a decimal button
+    [x] turn the drop down into a set of buttons
+
+[x] client.js update
+    [x] get the buttons to send their values to the textbox field
+    [x] break text box into individual units
+        [x] apply those inputs to the object for mathInputs, rest of code should run regularly
+
+[] server.js
+    [] move functions to new js files and require them

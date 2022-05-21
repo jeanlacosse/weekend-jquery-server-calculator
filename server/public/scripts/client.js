@@ -9,18 +9,25 @@ function onReady() {
     // $('.mathBtn').on('click', mathBtn);
     $('#submitBtn').on('click', submitMath);
     $('#clearBtn').on('click', clearOld);
+    $('.numBtn').on('click', appendNum)
+    $('.operatorBtn').on('click', appendOp)
 }
+
+
 
 function submitMath(evt) {
     // prevent form from reloading page
     evt.preventDefault();
     console.log('button works!')
 
+
     let mathInputs = {
-        numOne: Number($('#numOne').val()),
-        numTwo: Number($('#numTwo').val()),
-        operator: $('#operator').val(),
+        firstNum: $('#firstNum').text(),
+        secondNum: $('#secondNum').text(),
+        operator: $('#operator').text()
     }
+
+    $('.calculateBox').empty();
 
     $.ajax({
         // create post to send data to server
@@ -38,10 +45,11 @@ function submitMath(evt) {
 }
 
 // this function run to clear the old data from teh arrays on teh server side
-function clearOld(evt){
+function clearOld(evt) {
     evt.preventDefault();
 
-    $('#pastEquations').empty();
+    // $('#pastEquations').empty();
+    $('.calculateBox').empty();
 }
 
 function fetchMath() {
@@ -57,24 +65,5 @@ function fetchMath() {
     })
 }
 
-function renderMath(mathResonse) {
-    // gets the last key in the object --- idk if this works
 
-    // resets the values in the HTML
-    $('.numInput').val('');
-    // $('#pastEquations').empty();
-    $('#answer').empty();
-
-    // append to DOM here from the math that was setn from server in the GET mathObj
-    // pop the last objecct and grab the .answer and only append the one to the DOM
-        const lastAnswer = Object.values(mathResonse).pop();
-        console.log(lastAnswer)
-        $('#answer').append(`
-        Answer is: ${lastAnswer.answer}
-        `)
-        $('#pastEquations').append(`
-        <li>${lastAnswer.numOne} ${lastAnswer.operator} ${lastAnswer.numTwo} = ${lastAnswer.answer}</li>
-        `)
-
-}
 

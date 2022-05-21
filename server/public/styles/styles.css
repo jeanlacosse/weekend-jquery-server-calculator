@@ -1,0 +1,39 @@
+.numBtn {
+    padding: 18px;
+    font-size: 25px;
+    width: -webkit-fill-available;
+}
+
+.operatorBtn {
+    padding: 18px;
+    font-size: 25px;
+    width: -webkit-fill-available;
+}
+
+#display {
+    padding: 15px;
+    width: 82%;
+    font-size: 42px;
+}
+
+form {
+    background-color: rgb(77, 77, 113);
+}
+
+.calculateBox {
+    padding: 13px;
+    background-color: white;
+    font-size: 33px;
+}
+
+#inputBox {
+    padding: 10px;
+    margin: 18px;
+    background-color: rgb(77, 77, 113);
+}
+
+#submitBtn, #clearBtn {
+    padding: 18px;
+    font-size: 25px;
+    width: -webkit-fill-available;
+}
