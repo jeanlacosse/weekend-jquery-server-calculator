@@ -33,6 +33,7 @@ function appendNum() {
 // allow only one thing to append to operator at a time
 function appendOp() {
     if ($('#operator').text() === '') {
+        // could be this.val() as well b/c its a button
         $('#operator').append(`${$(this).text()}`)
     }
     else {

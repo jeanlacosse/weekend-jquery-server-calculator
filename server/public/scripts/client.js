@@ -33,12 +33,14 @@ function submitMath(evt) {
         // create post to send data to server
         url: '/calculate',
         method: 'POST',
+        // always want to send only objects in ajax        
         data: mathInputs,
     }).then(() => {
         console.log('POST /calculate working', mathInputs)
 
         // call the GET
         fetchMath()
+// could also be an anonymous function instead of arrow
     }).catch((err) => {
         console.log('error is', err)
     })
