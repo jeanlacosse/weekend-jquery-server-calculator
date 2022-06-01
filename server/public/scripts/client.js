@@ -4,7 +4,7 @@ function onReady() {
     console.log('JQ loaded')
     // add click listeners for all four math buttons here
     // better to have one listener for the class of buttons and then the function call will decide which is being clicked
-
+    fetchMath();
     // Below only need if doing multiple buttons, for now just doing a selector
     // $('.mathBtn').on('click', mathBtn);
     $('#submitBtn').on('click', submitMath);

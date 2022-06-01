@@ -1,10 +1,11 @@
 function renderMath(mathResonse) {
     // gets the last key in the object --- idk if this works
-
+    console.log('mathresponse', mathResonse);
     // resets the values in the HTML
     $('.numInput').val('');
     // $('#pastEquations').empty();
     $('#answer').empty();
+    $('#pastEquations').empty();
 
     // append to DOM here from the math that was setn from server in the GET mathObj
     // pop the last objecct and grab the .answer and only append the one to the DOM
@@ -13,9 +14,14 @@ function renderMath(mathResonse) {
     $('#answer').append(`
         Answer is: ${lastAnswer.answer}
         `)
-    $('#pastEquations').append(`
-        <li>${lastAnswer.firstNum} ${lastAnswer.operator} ${lastAnswer.secondNum} = ${lastAnswer.answer}</li>
+    // FIX FOR RE TURN IN
+    // loop over math response so it is everything from the answers array and not just the last one
+    for (let response of mathResonse) {
+        $('#pastEquations').append(`
+        <li>${response.firstNum} ${response.operator} ${response.secondNum} = ${response.answer}</li>
         `)
+    }
+
 
 }
 
