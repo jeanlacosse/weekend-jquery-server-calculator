@@ -37,6 +37,7 @@ app.post('/calculate', (req, res) => {
 
     // calculate in server the math nums 
     calculateEqn(mathNums);
+    mathNums = [];
     // response all went well
     res.sendStatus(201);
 });
