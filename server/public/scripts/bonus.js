@@ -1,5 +1,5 @@
 
-function setupClickListeners () {
+function setupClickListeners() {
     $('#submitBtn').on('click', submitMath);
     $('#clearBtn').on('click', clearOutCalculateBox);
     $('.numBtn').on('click', appendNumberToDiv)
@@ -12,32 +12,25 @@ function renderAnswerToDom(mathResonse) {
     $('#answer').empty();
     $('#pastEquations').empty();
 
- for (let response of mathResonse) {
+    for (let response of mathResonse) {
         $('#answer').append(`
-        Answer is: ${response.answer}
+        Answer is: ${response.answers}
         `)
         $('#pastEquations').append(`
-        <li>${response.firstNum} ${response.operator} ${response.secondNum} = ${response.answer}</li>
+        <li>${response.firstNum} ${response.operator} ${response.secondNum} = ${response.answers}</li>
         `)
     }
-    // append to DOM here from the math that was setn from server in the GET mathObj
-    // pop the last objecct and grab the .answer and only append the one to the DOM
-    // const lastAnswer = Object.values(mathResonse).pop();
-    // console.log(lastAnswer)
-    // $('#answer').append(`
-    //     Answer is: ${lastAnswer.answer}
-    //     `)
 }
 
 function submitMath(evt) {
     evt.preventDefault();
+    let mathInputs = {};
+    mathInputs.firstNum = $('#firstNum').text(),
+        mathInputs.secondNum = $('#secondNum').text(),
+        mathInputs.operator = $('#operator').text(),
 
-    let mathInputs = {
-        firstNum: $('#firstNum').text(),
-        secondNum: $('#secondNum').text(),
-        operator: $('#operator').text()
-    }
-    postMath(mathInputs);
+        console.log('math inputs', mathInputs)
+        postMath(mathInputs);
 
     $('.calculateBox').empty();
 }

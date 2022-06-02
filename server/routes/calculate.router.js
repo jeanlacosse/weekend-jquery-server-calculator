@@ -8,10 +8,8 @@ router.get('/', (req, res) => {
     SELECT * FROM "calculator" 
     ORDER BY "id" DESC;
     `;
-    // send query text to DB
     pool.query(queryText)
         .then(result => {
-            // Sends back the results in an object
             res.send(result.rows);
         })
         .catch(error => {
@@ -19,14 +17,6 @@ router.get('/', (req, res) => {
             res.sendStatus(500);
         });
 });
-
-let operators = {
-    '+': function (a, b) { return a + b },
-    '-': function (a, b) { return a - b },
-    '/': function (a, b) { return a / b },
-    '*': function (a, b) { return a * b },
-}
-
 
 router.post('/', (req, res) => {
     let newCalculation = req.body;
@@ -51,19 +41,23 @@ router.post('/', (req, res) => {
 });
 
 function calculateEqn(mathNums) {
-    console.log('in calculate eqn', mathNums)
-    // looping through mathNums Array
-    for (let input of mathNums) {
-        console.log('in calculateEqn', input);
-        // placing the array items into an eqn, this runs the operators object with the operator and the Number(strings) from the nnumInputs array
-        // how can I place this into the same object as the mathNums?
-        let answer = {
-            operator: input.operator,
-            firstNum: input.firstNum,
-            secondNum: input.secondNum,
-            answer: operators[input.operator](Number(input.firstNum), Number(input.secondNum))
-        }
-        return answer;
+    let operators = {
+        '+': function (a, b) { return a + b },
+        '-': function (a, b) { return a - b },
+        '/': function (a, b) { return a / b },
+        '*': function (a, b) { return a * b },
     }
-    
+
+    console.log('in calculate eqn', mathNums)
+    // for (let input of mathNums) {
+    //     console.log('in calculateEqn', input);
+    //     let answer = {
+    //         operator: input.operator,
+    //         firstNum: input.firstNum,
+    //         secondNum: input.secondNum,
+    //         answer: operators[input.operator](Number(input.firstNum), Number(input.secondNum))
+    //     }
+    //     return answer;
+    // }
 }
+
