@@ -2,24 +2,19 @@ $(document).ready(onReady);
 
 function onReady() {
     console.log('JQ loaded')
-    // add click listeners for all four math buttons here
-    // better to have one listener for the class of buttons and then the function call will decide which is being clicked
     fetchMath();
-    // Below only need if doing multiple buttons, for now just doing a selector
-    // $('.mathBtn').on('click', mathBtn);
+    setupClickListeners ();
+}
+
+function setupClickListeners () {
     $('#submitBtn').on('click', submitMath);
-    $('#clearBtn').on('click', clearOld);
+    $('#clearBtn').on('click', clearOutCalculateBox);
     $('.numBtn').on('click', appendNum)
     $('.operatorBtn').on('click', appendOp)
 }
 
-
-   
-
 function submitMath(evt) {
-    // prevent form from reloading page
     evt.preventDefault();
-    console.log('button works!')
 
     let mathInputs = {
         firstNum: $('#firstNum').text(),
@@ -30,34 +25,20 @@ function submitMath(evt) {
 
     $('.calculateBox').empty();
 }
-
-
     
 function postMath (mathInputs) {
     $.ajax({
-        // create post to send data to server
         url: '/calculate',
-        method: 'POST',
-        // always want to send only objects in ajax        
+        method: 'POST',  
         data: mathInputs,
     }).then(() => {
         console.log('POST /calculate working', mathInputs)
 
-        // call the GET
         fetchMath()
-// could also be an anonymous function instead of arrow
     }).catch((err) => {
         console.log('error is', err)
     });
 };
-
-// this function run to clear the old data from teh arrays on teh server side
-function clearOld(evt) {
-    evt.preventDefault();
-
-    // $('#pastEquations').empty();
-    $('.calculateBox').empty();
-}
 
 function fetchMath() {
     $.ajax({
@@ -65,11 +46,15 @@ function fetchMath() {
         method: 'GET',
     }).then((mathResonse) => {
         console.log('GET request working', mathResonse);
-        // send the object to a function which will send to DOM
-        renderMath(mathResonse);
+        renderAnswerToDom(mathResonse);
     }).catch((err) => {
         console.log('error is ', err);
     })
+}
+
+function clearOutCalculateBox(evt) {
+    evt.preventDefault();
+    $('.calculateBox').empty();
 }
 
 
