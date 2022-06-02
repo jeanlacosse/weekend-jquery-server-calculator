@@ -53,3 +53,8 @@ STRETCH GOALS
 
 [] server.js
     [] move functions to new js files and require them
+
+
+[] Backend create
+    [] create sql db
+        [] will have values for 
