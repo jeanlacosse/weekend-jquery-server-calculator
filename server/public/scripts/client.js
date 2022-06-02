@@ -14,21 +14,26 @@ function onReady() {
 }
 
 
+   
 
 function submitMath(evt) {
     // prevent form from reloading page
     evt.preventDefault();
     console.log('button works!')
 
-
     let mathInputs = {
         firstNum: $('#firstNum').text(),
         secondNum: $('#secondNum').text(),
         operator: $('#operator').text()
     }
+    postMath(mathInputs);
 
     $('.calculateBox').empty();
+}
 
+
+    
+function postMath (mathInputs) {
     $.ajax({
         // create post to send data to server
         url: '/calculate',
@@ -43,8 +48,8 @@ function submitMath(evt) {
 // could also be an anonymous function instead of arrow
     }).catch((err) => {
         console.log('error is', err)
-    })
-}
+    });
+};
 
 // this function run to clear the old data from teh arrays on teh server side
 function clearOld(evt) {
