@@ -1,3 +1,11 @@
+
+function setupClickListeners () {
+    $('#submitBtn').on('click', submitMath);
+    $('#clearBtn').on('click', clearOutCalculateBox);
+    $('.numBtn').on('click', appendNumberToDiv)
+    $('.operatorBtn').on('click', appendOperatorToDiv)
+}
+
 function renderAnswerToDom(mathResonse) {
     console.log('mathresponse', mathResonse);
     $('.numInput').val('');
@@ -21,7 +29,20 @@ function renderAnswerToDom(mathResonse) {
     //     `)
 }
 
-function appendNum() {
+function submitMath(evt) {
+    evt.preventDefault();
+
+    let mathInputs = {
+        firstNum: $('#firstNum').text(),
+        secondNum: $('#secondNum').text(),
+        operator: $('#operator').text()
+    }
+    postMath(mathInputs);
+
+    $('.calculateBox').empty();
+}
+
+function appendNumberToDiv() {
     if ($('#operator').text() === '') {
         $('#firstNum').append(`${$(this).text()}`);
     }
@@ -30,11 +51,16 @@ function appendNum() {
     }
 }
 
-function appendOp() {
+function appendOperatorToDiv() {
     if ($('#operator').text() === '') {
         $('#operator').append(`${$(this).text()}`)
     }
     else {
         return;
     }
+}
+
+function clearOutCalculateBox(evt) {
+    evt.preventDefault();
+    $('.calculateBox').empty();
 }
