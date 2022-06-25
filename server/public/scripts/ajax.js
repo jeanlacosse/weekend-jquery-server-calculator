@@ -17,6 +17,7 @@ function postMath (mathInputs) {
     $.ajax({
         type: 'POST',  
         url: '/calculate',
+        // this is object with the inputs and the operator
         data: mathInputs
     })
     .then((response) => {
@@ -24,6 +25,6 @@ function postMath (mathInputs) {
         fetchMath()
     })
     .catch((err) => {
-        console.log('error is', err)
+        console.log('error in POST', err, mathInputs)
     });
 };

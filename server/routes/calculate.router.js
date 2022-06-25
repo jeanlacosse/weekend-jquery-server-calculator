@@ -19,7 +19,7 @@ router.get('/', (req, res) => {
 });
 
 router.post('/', (req, res) => {
-    let newCalculation = req.body;
+    let newCalculation = req.body.data;
     // undefined... why?
     console.log(`Adding calculation`, newCalculation);
 
